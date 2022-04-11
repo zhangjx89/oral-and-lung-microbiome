@@ -3,7 +3,7 @@
 
 
 ### Graphical Abstract
-![image](https://https://github.com/zhangjx89/Figure.8.png)
+![image](https://github.com/zhangjx89/oral-and-lung-microbiome/blob/main/Figure.8.png)
 
 ### Context: 
 
