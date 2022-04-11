@@ -1,0 +1,18 @@
+---
+title: "figure_3e"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# figure_3e
+
+```{r}
+
+
+Genes_niche_width<-read.table("Genes_niche_width",header = TRUE,row.names = 1)
+
+
+ggplot(data, aes(fill=variable, y=value, x=Genus)) +geom_bar(position="dodge",stat="identity")+theme_cleveland()+coord_flip()+theme(axis.text.y=element_text(size=12,face="bold.italic"),axis.text.x=element_text(size=12,face="bold"))+ylab("niche breadth")
+```

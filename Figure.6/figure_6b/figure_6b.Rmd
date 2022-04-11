@@ -1,0 +1,23 @@
+---
+title: "figure_6b"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+# figure_6b
+```{r}
+lung<-read.table("lung.txt",header = TRUE,row.names = 1,sep = "\t")
+
+lung$status<-2
+lung<-na.omit(lung)
+lung<-lung[-15,]
+lung<-lung[-29,]
+fit <- survfit(Surv(住院天数, status) ~ CT, data = lung)
+ggsurvplot(fit,
+           conf.int = FALSE,
+           risk.table.col = "strata", # Change risk table color by groups
+           ggtheme = theme_bw(), # Change ggplot2 theme
+           palette = c("#F8766D", "#00BFC4"),
+           fun = "event",pval = TRUE)
+```

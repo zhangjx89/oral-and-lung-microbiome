@@ -1,0 +1,41 @@
+"Genus"	"Enrich_group"	"Function"	"value"
+"1"	"g_Prevotella 7"	"HOIT"	"ANCOM"	129
+"2"	"g_Fusobacterium"	"HOIT"	"ANCOM"	118
+"3"	"g_Oribacterium"	"HOIT"	"ANCOM"	111
+"4"	"g_Veillonella"	"HOIT"	"ANCOM"	110
+"5"	"g_Leptotrichia"	"HOIT"	"ANCOM"	108
+"6"	"g_Prevotella 6"	"HOIT"	"ANCOM"	107
+"7"	"g_Prevotella"	"HOIT"	"ANCOM"	106
+"8"	"g_Lachnoanaerobaculum"	"HOIT"	"ANCOM"	106
+"9"	"g_Porphyromonas"	"HOIT"	"ANCOM"	105
+"10"	"g_Solobacterium"	"HOIT"	"ANCOM"	105
+"11"	"g_Peptostreptococcus"	"HOIT"	"ANCOM"	103
+"12"	"g_Granulicatella"	"HOIT"	"ANCOM"	103
+"13"	"g_Neisseria"	"HOIT"	"ANCOM"	102
+"14"	"g_[Eubacterium] nodatum group"	"HOIT"	"ANCOM"	102
+"15"	"g_Catonella"	"HOIT"	"ANCOM"	101
+"16"	"g_Campylobacter"	"HOIT"	"ANCOM"	100
+"17"	"g_Gemella"	"HOIT"	"ANCOM"	99
+"18"	"g_Prevotella 2"	"HOIT"	"ANCOM"	99
+"19"	"g_Rothia"	"HOIT"	"ANCOM"	97
+"20"	"g_Haemophilus"	"HOIT"	"ANCOM"	97
+"21"	"g_Pseudomonas"	"LOIT"	"ANCOM"	129
+"22"	"g_Acinetobacter"	"LOIT"	"ANCOM"	128
+"23"	"g_Brevundimonas"	"LOIT"	"ANCOM"	117
+"24"	"g_Pedobacter"	"LOIT"	"ANCOM"	114
+"25"	"g_Family XIII UCG-001"	"LOIT"	"ANCOM"	109
+"26"	"g_Bradyrhizobium"	"LOIT"	"ANCOM"	108
+"27"	"g_Fretibacterium"	"LOIT"	"ANCOM"	106
+"28"	"g_Stomatobaculum"	"LOIT"	"ANCOM"	105
+"29"	"g_Peptococcus"	"LOIT"	"ANCOM"	105
+"30"	"g_Bulleidia"	"LOIT"	"ANCOM"	104
+"31"	"g_Clostridiales bacterium canine oral taxon 162"	"LOIT"	"ANCOM"	102
+"32"	"g_F0058"	"LOIT"	"ANCOM"	101
+"33"	"g_Prevotella 9"	"LOIT"	"ANCOM"	100
+"34"	"g_Mogibacterium"	"LOIT"	"ANCOM"	100
+"35"	"g_Johnsonella"	"LOIT"	"ANCOM"	100
+"36"	"g_[Eubacterium] yurii group"	"LOIT"	"ANCOM"	100
+"37"	"g_Defluviitaleaceae UCG-011"	"LOIT"	"ANCOM"	100
+"38"	"g_Phocaeicola"	"LOIT"	"ANCOM"	100
+"39"	"g_Sphingomonas"	"LOIT"	"ANCOM"	99
+"40"	"g_Bacillus"	"LOIT"	"ANCOM"	96

@@ -1,0 +1,41 @@
+---
+title: "figure_2e"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# figure_2e
+
+```{r}
+
+
+pseq.rel1c<- read.table("pseq.rel1c.txt",header = TRUE,row.names = 1)
+pseq.rel2c<- read.table("pseq.rel2c.txt",header = TRUE,row.names = 1)
+
+
+text_color<-c(rep("#00BFC4",times=5),rep("#F8766D",times=13))
+
+HCG.p.BAL <- plot_core(pseq.rel1c, plot.type = "heatmap", 
+                prevalences = prevalences,
+                detections = detections,
+                colours = rev(brewer.pal(5, "RdBu")),
+                horizontal = FALSE)+
+                theme(axis.text.x = element_blank(), axis.title.x=element_blank(), axis.text.y=element_text(size=12,face="bold.italic",color=text_color)) +
+                theme(title=element_blank())+
+                theme(legend.position='none')
+
+LCG.p <- plot_core(pseq.rel2c, plot.type = "heatmap", 
+                prevalences = prevalences,
+                detections = detections,
+                colours = rev(brewer.pal(5, "RdBu")),
+                horizontal = FALSE,taxa.order = HCG.p.BAL[["plot_env"]][["o"]])+ 
+                theme(axis.text.x = element_blank(), axis.title.x=element_blank(),axis.text.y = element_blank())+
+                theme(title=element_text(size=18, color="#4F4F4F") )+
+                theme(legend.title = element_blank())+
+                theme(title=element_blank())+
+                theme(legend.position='none')
+
+
+```

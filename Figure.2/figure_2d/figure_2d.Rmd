@@ -1,0 +1,16 @@
+---
+title: "figure_2d"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# figure_2d
+```{R}
+ANCOMvsLEfSe_A<-read.table("ANCOMvsLEfSe_A.txt",header = TRUE,row.names = 1)
+
+ggplot(ANCOMvsLEfSe_A,aes(x = Genus, y = value,color=Enrich_group))+geom_hline(yintercept = 0)+geom_point(size = 3) +
+    geom_segment(aes(xend = Genus, yend = 0), size = 1)+theme_light()+coord_flip()+theme(axis.text.y=element_text(size=12,face="bold.italic"),axis.text.x=element_text(size=12,face="bold"))+ylab("ANCOM:W_value")
+
+```

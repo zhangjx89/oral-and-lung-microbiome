@@ -1,0 +1,146 @@
+---
+title: "figure_7bc"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+# figure_7abc
+
+```{r}
+
+
+# 读取BAL lefse结果
+BAL_lefse<-read.table("BAL_LEfSe_results.txt",sep = "\t")
+# 筛选有差异的菌
+BAL_lefse<-subset(BAL_lefse,V3%in%c("HCG","LCG"))
+
+
+BAL_lefse<-subset(BAL_lefse,V4>3.5)
+# 提取差异菌的idx
+Genus_idx<-BAL_lefse$V1
+# 提取差异菌的相对丰度
+Genus_lefse<-OTU_TAX_Genus_RA[row.names(OTU_TAX_Genus_RA)%in%Genus_idx,colnames(OTU_TAX_Genus_RA)%in%sample.names(LungCancer_Normalized_BAL)]
+Genus_lefse["ST",]<-SourceTracker$Saliva
+Genus_lefse<-as.data.frame(t(Genus_lefse))
+
+Genus_lefse$ID<-rownames(Genus_lefse)
+
+
+Genus_lefse<-merge(Genus_lefse,sample_data_BAL,by="ID")
+
+
+Genus_lefse<-merge(Genus_lefse,lung_function,by.x="index",by.y="ID")
+
+
+
+Genus_lung_function<- corr.test(Genus_lefse[,3:27],Genus_lefse[,71:86], method = 'spearman',adjust = "none")
+
+
+
+
+
+
+
+cytokine<-read.table("48因子检测结果_去除小于阈值.txt",header=TRUE,row.names=1,sep="\t")
+cytokine<-cytokine[,colnames(cytokine)%in%c("ID","MCP.1","VEGF.A","IL.1a","IL.1b","IP.10","RANTES","IL.1RA","PDGF.AA","CXCL9")]
+
+
+# 读取BAL lefse结果
+BAL_lefse<-read.table("BAL_LEfSe_results.txt",sep = "\t")
+# 筛选有差异的菌
+BAL_lefse<-subset(BAL_lefse,V3%in%c("HCG","LCG"))
+
+
+BAL_lefse<-subset(BAL_lefse,V4>3.5)
+# 提取差异菌的idx
+Genus_idx<-BAL_lefse$V1
+# 提取差异菌的相对丰度
+Genus_lefse<-OTU_TAX_Genus_RA[row.names(OTU_TAX_Genus_RA)%in%Genus_idx,colnames(OTU_TAX_Genus_RA)%in%sample.names(LungCancer_Normalized_BAL)]
+Genus_lefse["ST",]<-SourceTracker$Saliva
+Genus_lefse<-as.data.frame(t(Genus_lefse))
+
+Genus_lefse$ID<-rownames(Genus_lefse)
+
+
+Genus_lefse<-merge(Genus_lefse,sample_data_BAL,by="ID")
+
+Genus_lefse<-merge(Genus_lefse,cytokine,by="ID")
+
+Genus_cytokine<- corr.test(Genus_lefse[,2:26],Genus_lefse[,70:78], method = 'spearman',adjust = "none")
+
+
+
+
+r_val<-cbind(Genus_cytokine$r,Genus_lung_function$r)
+p_val<-cbind(Genus_cytokine$p,Genus_lung_function$p)
+corrplot(r_val,p.ma= p_val, insig = "label_sig",sig.level = c(.001, .01, .05), pch.cex = .9, pch.col = "black")
+
+
+
+cor_sparcc<-r_val
+pvals<-p_val
+cor_sparcc[abs(cor_sparcc) < 0.1] <- 0
+pvals[pvals>=0.05] <- -1
+pvals[pvals<0.05 & pvals>=0] <- 1
+pvals[pvals==-1] <- 0
+adj <- as.matrix(cor_sparcc) * as.matrix(pvals)
+
+adj<-adj[which(!(colSums(adj)==0)),which(!(colSums(adj)==0))]
+adj<-data.frame(adj)
+
+data<-matrix(nrow = 46, ncol = 46)
+data<-as.data.frame(data)
+data[1:23,24:46]<-adj
+
+data[24:46,1:23]<-data.frame(t(adj))
+
+colnames(data)<-c(row.names(adj),colnames(adj))
+
+row.names(data)<-colnames(data)
+adj<-data
+
+colnames(adj)<-gsub("实际.预测", "", colnames(adj), fixed = TRUE)
+row.names(adj)<-gsub("实际.预测", "", row.names(adj), fixed = TRUE)
+
+adj[is.na(adj)]<-0
+g <- graph_from_adjacency_matrix(as.matrix(adj), mode = 'undirected', weighted = TRUE, diag = FALSE)
+igraph <-  graph_from_adjacency_matrix(as.matrix(adj),
+                                       mode="undirected",
+                                       weighted=TRUE,
+                                       diag=FALSE)
+
+createNetworkFromIgraph(igraph,"figure.4")
+# 添加门水平注释
+name<-data.frame(V(igraph)$name)
+colnames(name)<-"name"
+
+
+V(igraph)$Phylum<-as.character(name$Phylum)
+igraph.bal.HCG<-igraph
+createNetworkFromIgraph(igraph,"BAL_HCG")
+# 添加丰度信息
+
+OTU_TAX_Genus_RA_BAL<-OTU_TAX_Genus_RA[,colnames(OTU_TAX_Genus_RA)%in%sample.names(LungCancer_Normalized_BAL)]
+data<-OTU_TAX_Genus_RA_BAL
+data$mean<-rowSums(data)/99
+
+data<-data[rownames(data)%in%row.names(adj),]
+
+# 添加正负相关性
+
+abx<-data.frame(E(igraph)$weight)
+
+abx$abx<-ifelse(abx$E.igraph..weight>0,"positive","negative")
+E(igraph)$abx<-abx$abx
+
+
+
+# 读取节点信息
+
+nodes.info<-read.table("node.info.txt",header = TRUE,row.names = 1,sep = "\t")
+
+V(igraph)$group<-as.character(nodes.info$group)
+V(igraph)$enrich<-as.character(nodes.info$enrich)
+V(igraph)$mean_RA<-as.character(nodes.info$mean_RA)
+```

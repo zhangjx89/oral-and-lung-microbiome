@@ -1,0 +1,647 @@
+---
+title: "figure_3a"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+# figure_3ab
+```{r}
+# BAL-Saliva
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_HCG)]
+Saliva_pool<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_Saliva_HCG)]
+
+spp <-t(BAL_spp)
+pool <-t(Saliva_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+colnames(tax_id)<-"Genus"
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+P_BS <- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+BS_midmod<-spp.out$predictions
+
+BS_midmod$group<-"BAL-Saliva"
+# BAL-Oroph
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_HCG)]
+
+
+Oroph_pool<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_Oroph_HCG)]
+
+spp <-t(BAL_spp)
+
+pool <-t(Oroph_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+
+colnames(tax_id)<-"Genus"
+
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+P_BO<- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+BO_midmod<-spp.out$predictions
+BO_midmod$group<-"BAL-Oroph"
+# BAL-Nasal
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_HCG)]
+
+
+Nasal_pool<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_Nasal_HCG)]
+
+spp <-t(BAL_spp)
+
+pool <-t(Nasal_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+
+colnames(tax_id)<-"Genus"
+
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+P_BN <- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+BN_midmod<-spp.out$predictions
+BN_midmod$group<-"BAL-Nasal"
+
+
+
+
+
+
+
+BAl_Genus<-OTU_TAX_Genus_RA[,colnames(OTU_TAX_Genus_RA)%in%sample_names(LungCancer_Normalized_BAL_HCG)]
+
+BAl_Genus$sum<-rowSums(BAl_Genus)
+BAl_Genus$mean<-BAl_Genus$sum/71
+BAl_Genus<-BAl_Genus[,72:73]
+BAl_Genus$Genus<-rownames(BAl_Genus)
+BN_midmod_predicted<-subset(BN_midmod,fit_class=="As predicted")
+BO_midmod_predicted<-subset(BO_midmod,fit_class=="As predicted")
+BS_Genus<-subset(BAl_Genus,Genus%in%BS_midmod_predicted$Genus)
+BN_Genus<-subset(BAl_Genus,Genus%in%BN_midmod_predicted$Genus)
+BO_Genus<-subset(BAl_Genus,Genus%in%BO_midmod_predicted$Genus)
+
+BS_SUM<-sum(BS_Genus$mean)
+
+BN_SUM<-sum(BN_Genus$mean)
+
+BO_SUM<-sum(BO_Genus$mean)
+
+predicted_SUM <- data.frame(c("Saliva","Nasal","Oroph"),c(BS_SUM,BN_SUM,BO_SUM))
+predicted_SUM $group<-"predicted"
+
+
+BS_midmod_Above<-subset(BS_midmod,fit_class=="Above prediction")
+BN_midmod_Above<-subset(BN_midmod,fit_class=="Above prediction")
+BO_midmod_Above<-subset(BO_midmod,fit_class=="Above prediction")
+BS_Genus<-subset(BAl_Genus,Genus%in%BS_midmod_Above$Genus)
+BN_Genus<-subset(BAl_Genus,Genus%in%BN_midmod_Above$Genus)
+BO_Genus<-subset(BAl_Genus,Genus%in%BO_midmod_Above$Genus)
+BS_SUM<-sum(BS_Genus$mean)
+BN_SUM<-sum(BN_Genus$mean)
+BO_SUM<-sum(BO_Genus$mean)
+
+Above_SUM <- data.frame(c("Saliva","Nasal","Oroph"),c(BS_SUM,BN_SUM,BO_SUM))
+Above_SUM $group<-"Above"
+
+
+
+BS_midmod_Below<-subset(BS_midmod,fit_class=="Below prediction")
+BN_midmod_Below<-subset(BN_midmod,fit_class=="Below prediction")
+BO_midmod_Below<-subset(BO_midmod,fit_class=="Below prediction")
+BS_Genus<-subset(BAl_Genus,Genus%in%BS_midmod_Below$Genus)
+BN_Genus<-subset(BAl_Genus,Genus%in%BN_midmod_Below$Genus)
+BO_Genus<-subset(BAl_Genus,Genus%in%BO_midmod_Below$Genus)
+BS_SUM<-sum(BS_Genus$mean)
+BN_SUM<-sum(BN_Genus$mean)
+BO_SUM<-sum(BO_Genus$mean)
+
+Below_SUM <- data.frame(c("Saliva","Nasal","Oroph"),c(BS_SUM,BN_SUM,BO_SUM))
+Below_SUM $group<-"Below"
+
+
+SUM<-rbind.data.frame(predicted_SUM ,Above_SUM,Below_SUM)
+
+colnames(SUM)[1:2]<-c("sample","value")
+
+
+p<-ggplot(data= SUM, mapping=aes(x=sample,y=value))+
+    geom_bar(aes(fill=group),stat="identity",position="dodge")+scale_fill_manual(name = "Group", values = c(`predicted` = "blue", `Above`="cyan4",`Below`="goldenrod" ))+theme_bw()+theme(axis.text.x=element_text(colour="black",family="Times",size=14,angle =30,vjust = 1,hjust = 1))
+
+
+
+
+
+
+
+
+
+BN_unit<-data.frame(setdiff(BN_midmod$Genus,union(BS_midmod$Genus,BO_midmod$Genus)))
+BN_unit$site<-"Nasal"
+BS_unit<-data.frame(setdiff(BS_midmod$Genus,union(BN_midmod$Genus,BO_midmod$Genus)))
+BS_unit$site<-"Saliva"
+BO_unit<-data.frame(setdiff(BO_midmod$Genus,union(BN_midmod$Genus,BS_midmod$Genus)))
+BO_unit$site<-"Oroph"
+OS_unit<-data.frame(setdiff(intersect(BS_midmod$Genus,BO_midmod$Genus),BN_midmod$Genus))
+row.names(OS_unit)<-OS_unit$setdiff.intersect.BS_midmod.Genus..BO_midmod.Genus...BN_midmod.Genus.
+OS_unit$site<-"no"
+for (i in OS_unit$setdiff.intersect.BS_midmod.Genus..BO_midmod.Genus...BN_midmod.Genus.){
+  if (abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1)>abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1))
+    OS_unit[i,2]<-"Oroph"
+  else
+    OS_unit[i,2]<-"Saliva"
+  
+} 
+
+
+ON_unit<-data.frame(setdiff(intersect(BN_midmod$Genus,BO_midmod$Genus),BS_midmod$Genus))
+row.names(ON_unit)<-ON_unit$setdiff.intersect.BN_midmod.Genus..BO_midmod.Genus...BS_midmod.Genus.
+ON_unit$site<-"no"
+for (i in ON_unit$setdiff.intersect.BN_midmod.Genus..BO_midmod.Genus...BS_midmod.Genus.){
+  if (abs(BN_midmod[i,]$freq.pred/BN_midmod[i,]$freq-1)>abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1))
+    ON_unit[i,2]<-"Oroph"
+  else
+    ON_unit[i,2]<-"Nasal"
+} 
+
+
+
+SN_unit<-data.frame(setdiff(intersect(BN_midmod$Genus,BS_midmod$Genus),BO_midmod$Genus))
+row.names(SN_unit)<-SN_unit$setdiff.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.
+SN_unit$site<-"no"
+for (i in SN_unit$setdiff.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.){
+  if (abs(BN_midmod[i,]$freq.pred/BN_midmod[i,]$freq-1)>abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+    SN_unit[i,2]<-"Saliva"
+  else
+    SN_unit[i,2]<-"Nasal"
+} 
+
+
+
+
+
+SNO_unit<-data.frame(intersect(intersect(BN_midmod$Genus,BS_midmod$Genus),BO_midmod$Genus))
+row.names(SNO_unit)<-SNO_unit$intersect.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.
+SNO_unit$site<-"no"
+for (i in SNO_unit$intersect.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.){
+  if (abs(BN_midmod[i,]$freq.pred/BN_midmod[i,]$freq-1)>abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+   if (abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1)>abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+     SNO_unit[i,2]<-"Saliva"
+   else
+     SNO_unit[i,2]<-"Oroph"
+  else
+  if (abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1)>abs(BN_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+    SNO_unit[i,2]<-"Nasal"
+  else
+    SNO_unit[i,2]<-"Oroph"
+     
+} 
+
+
+# 合并所有的最优解
+# 统一列名
+colnames(SNO_unit)<-c("Genus","site")
+colnames(SN_unit)<-c("Genus","site")
+colnames(OS_unit)<-c("Genus","site")
+colnames(ON_unit)<-c("Genus","site")
+colnames(BN_unit)<-c("Genus","site")
+colnames(BO_unit)<-c("Genus","site")
+colnames(BS_unit)<-c("Genus","site")
+best_site<-rbind.data.frame(SNO_unit,SN_unit,OS_unit,ON_unit,BN_unit,BO_unit,BS_unit)
+best_site_Saliva<-subset(best_site,site=="Saliva")
+best_site_Nasal<-subset(best_site,site=="Nasal")
+best_site_Oroph<-subset(best_site,site=="Oroph")
+
+Oroph_pool_best<-Oroph_pool[rownames(Oroph_pool)%in%best_site_Oroph$Genus,]
+Saliva_pool_best<-Saliva_pool[rownames(Saliva_pool)%in%best_site_Saliva$Genus,]
+Nasal_pool_best<-Nasal_pool[rownames(Nasal_pool)%in%best_site_Nasal$Genus,]
+
+
+
+# 筛选
+pair_name<-read.table("pair_sample.txt",header = TRUE,row.names = 1)
+pair_name<-subset(pair_name,pair_name$Saliva%in%sample_names(LungCancer_Normalized_Saliva_HCG))
+pair_name<-pair_name[,3:5]
+
+pair_name<-na.omit(pair_name)
+Nasal_pool_best<-Nasal_pool_best[,colnames(Nasal_pool_best)%in%pair_name$Nasal]
+
+Oroph_pool_best<-Oroph_pool_best[,colnames(Oroph_pool_best)%in%pair_name$Oroph]
+
+Saliva_pool_best<-Saliva_pool_best[,colnames(Saliva_pool_best)%in%pair_name$Saliva]
+
+colnames(Saliva_pool_best)<-rownames(pair_name)
+
+colnames(Oroph_pool_best)<-rownames(pair_name)
+
+colnames(Nasal_pool_best)<-rownames(pair_name)
+best_pool<-rbind.data.frame(Saliva_pool_best,Oroph_pool_best,Nasal_pool_best)
+
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_HCG)]
+
+
+
+# 统计BAL中存在的物种树
+table<-BAL_spp[rowSums(BAL_spp)>0,]
+
+
+
+spp <-t(BAL_spp)
+pool <-t(best_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+colnames(tax_id)<-"Genus"
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+
+data<-spp.out$predictions
+
+
+data<-merge(data,best_site,by="Genus")
+
+spp.out$predictions<-data
+spp.out$predictions$site<-as.factor(spp.out$predictions$site)
+
+
+plot_sncm_fit(spp.out)+ #设置总的标题
+    theme_bw()+ #背景变为白色
+    theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())+geom_point(aes(x = log(p), y = freq, fill =site),shape=21,size = 2, alpha = 0.75)+scale_fill_manual(name = "Sites",values = c(`Saliva` = "#FFA500", `Oroph` = "#FF0000", `Nasal` = "#800000"))+theme(legend.position="none")+xlab(expression(paste(log[10],"(Mean Relative Abundance in Source)")))+ylab("Frequency in BAL")
+
+
+ c("Nasal:83" ,"Oroph:80","Saliva:103 ")
+
+
+BEST_midmod<-spp.out$predictions
+my_comparisons <- list(c("Nasal", "Oroph"),c("Nasal", "Saliva"))
+ggplot(data,aes(x=site,y=freq))+ #”fill=“设置填充颜色
+  stat_boxplot(geom = "errorbar",width=0.15,aes(color="black"))+ #由于自带的箱形图没有胡须末端没有短横线，使用误差条的方式补上
+  geom_boxplot(size=0.5,fill="white",outlier.fill="white",outlier.color="white")+ #size设置箱线图的边框线和胡须的线宽度，fill设置填充颜色，outlier.fill和outlier.color设置异常点的属性
+  geom_jitter(aes(fill=site),width =0.2,shape = 21,size=2.5)+ #设置为向水平方向抖动的散点图，width指定了向水平方向抖动，不改变纵轴的值
+  scale_fill_manual(values = c("#800000", "#FF0000","#FFDEAD"))+  #设置填充的颜色
+  scale_color_manual(values=c("black","black","black"))+ #设置散点图的圆圈的颜色为黑色
+  ggtitle("")+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme(legend.position="none", #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())+
+  ylab("BAL Freq")+xlab("")+stat_compare_means(comparisons=my_comparisons)
+
+
+
+   
+
+
+
+#############################################LCG
+
+# BAL-Saliva
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_LCG)]
+Saliva_pool<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_Saliva_LCG)]
+
+spp <-t(BAL_spp)
+pool <-t(Saliva_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+colnames(tax_id)<-"Genus"
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+P_BS <- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+BS_midmod<-spp.out$predictions
+
+BS_midmod$group<-"BAL-Saliva"
+# BAL-Oroph
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_LCG)]
+
+
+Oroph_pool<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_Oroph_LCG)]
+
+spp <-t(BAL_spp)
+
+pool <-t(Oroph_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+
+colnames(tax_id)<-"Genus"
+
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+P_BO<- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+BO_midmod<-spp.out$predictions
+BO_midmod$group<-"BAL-Oroph"
+# BAL-Nasal
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_LCG)]
+
+
+Nasal_pool<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_Nasal_LCG)]
+
+spp <-t(BAL_spp)
+
+pool <-t(Nasal_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+
+colnames(tax_id)<-"Genus"
+
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+P_BN <- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+BN_midmod<-spp.out$predictions
+BN_midmod$group<-"BAL-Nasal"
+
+
+
+
+
+
+
+BAl_Genus<-OTU_TAX_Genus_RA[,colnames(OTU_TAX_Genus_RA)%in%sample_names(LungCancer_Normalized_BAL_LCG)]
+
+BAl_Genus$sum<-rowSums(BAl_Genus)
+BAl_Genus$mean<-BAl_Genus$sum/28
+BAl_Genus<-BAl_Genus[,29:30]
+BAl_Genus$Genus<-rownames(BAl_Genus)
+BN_midmod_predicted<-subset(BN_midmod,fit_class=="As predicted")
+BO_midmod_predicted<-subset(BO_midmod,fit_class=="As predicted")
+BS_Genus<-subset(BAl_Genus,Genus%in%BS_midmod_predicted$Genus)
+BN_Genus<-subset(BAl_Genus,Genus%in%BN_midmod_predicted$Genus)
+BO_Genus<-subset(BAl_Genus,Genus%in%BO_midmod_predicted$Genus)
+
+BS_SUM<-sum(BS_Genus$mean)
+
+BN_SUM<-sum(BN_Genus$mean)
+
+BO_SUM<-sum(BO_Genus$mean)
+
+predicted_SUM <- data.frame(c("Saliva","Nasal","Oroph"),c(BS_SUM,BN_SUM,BO_SUM))
+predicted_SUM $group<-"predicted"
+
+
+BS_midmod_Above<-subset(BS_midmod,fit_class=="Above prediction")
+BN_midmod_Above<-subset(BN_midmod,fit_class=="Above prediction")
+BO_midmod_Above<-subset(BO_midmod,fit_class=="Above prediction")
+BS_Genus<-subset(BAl_Genus,Genus%in%BS_midmod_Above$Genus)
+BN_Genus<-subset(BAl_Genus,Genus%in%BN_midmod_Above$Genus)
+BO_Genus<-subset(BAl_Genus,Genus%in%BO_midmod_Above$Genus)
+BS_SUM<-sum(BS_Genus$mean)
+BN_SUM<-sum(BN_Genus$mean)
+BO_SUM<-sum(BO_Genus$mean)
+
+Above_SUM <- data.frame(c("Saliva","Nasal","Oroph"),c(BS_SUM,BN_SUM,BO_SUM))
+Above_SUM $group<-"Above"
+
+
+
+BS_midmod_Below<-subset(BS_midmod,fit_class=="Below prediction")
+BN_midmod_Below<-subset(BN_midmod,fit_class=="Below prediction")
+BO_midmod_Below<-subset(BO_midmod,fit_class=="Below prediction")
+BS_Genus<-subset(BAl_Genus,Genus%in%BS_midmod_Below$Genus)
+BN_Genus<-subset(BAl_Genus,Genus%in%BN_midmod_Below$Genus)
+BO_Genus<-subset(BAl_Genus,Genus%in%BO_midmod_Below$Genus)
+BS_SUM<-sum(BS_Genus$mean)
+BN_SUM<-sum(BN_Genus$mean)
+BO_SUM<-sum(BO_Genus$mean)
+
+Below_SUM <- data.frame(c("Saliva","Nasal","Oroph"),c(BS_SUM,BN_SUM,BO_SUM))
+Below_SUM $group<-"Below"
+
+
+SUM<-rbind.data.frame(predicted_SUM ,Above_SUM,Below_SUM)
+
+colnames(SUM)[1:2]<-c("sample","value")
+
+
+p<-ggplot(data= SUM, mapping=aes(x=sample,y=value))+
+    geom_bar(aes(fill=group),stat="identity",position="dodge")+scale_fill_manual(name = "Group", values = c(`predicted` = "blue", `Above`="cyan4",`Below`="goldenrod" ))+theme_bw()+theme(axis.text.x=element_text(colour="black",family="Times",size=14,angle =30,vjust = 1,hjust = 1))
+
+
+
+
+
+
+
+
+
+BN_unit<-data.frame(setdiff(BN_midmod$Genus,union(BS_midmod$Genus,BO_midmod$Genus)))
+BN_unit$site<-"Nasal"
+BS_unit<-data.frame(setdiff(BS_midmod$Genus,union(BN_midmod$Genus,BO_midmod$Genus)))
+BS_unit$site<-"Saliva"
+BO_unit<-data.frame(setdiff(BO_midmod$Genus,union(BN_midmod$Genus,BS_midmod$Genus)))
+BO_unit$site<-"Oroph"
+OS_unit<-data.frame(setdiff(intersect(BS_midmod$Genus,BO_midmod$Genus),BN_midmod$Genus))
+row.names(OS_unit)<-OS_unit$setdiff.intersect.BS_midmod.Genus..BO_midmod.Genus...BN_midmod.Genus.
+OS_unit$site<-"no"
+for (i in OS_unit$setdiff.intersect.BS_midmod.Genus..BO_midmod.Genus...BN_midmod.Genus.){
+  if (abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1)>abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1))
+    OS_unit[i,2]<-"Oroph"
+  else
+    OS_unit[i,2]<-"Saliva"
+  
+} 
+
+
+ON_unit<-data.frame(setdiff(intersect(BN_midmod$Genus,BO_midmod$Genus),BS_midmod$Genus))
+row.names(ON_unit)<-ON_unit$setdiff.intersect.BN_midmod.Genus..BO_midmod.Genus...BS_midmod.Genus.
+ON_unit$site<-"no"
+for (i in ON_unit$setdiff.intersect.BN_midmod.Genus..BO_midmod.Genus...BS_midmod.Genus.){
+  if (abs(BN_midmod[i,]$freq.pred/BN_midmod[i,]$freq-1)>abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1))
+    ON_unit[i,2]<-"Oroph"
+  else
+    ON_unit[i,2]<-"Nasal"
+} 
+
+
+
+SN_unit<-data.frame(setdiff(intersect(BN_midmod$Genus,BS_midmod$Genus),BO_midmod$Genus))
+row.names(SN_unit)<-SN_unit$setdiff.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.
+SN_unit$site<-"no"
+for (i in SN_unit$setdiff.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.){
+  if (abs(BN_midmod[i,]$freq.pred/BN_midmod[i,]$freq-1)>abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+    SN_unit[i,2]<-"Saliva"
+  else
+    SN_unit[i,2]<-"Nasal"
+} 
+
+
+
+
+
+SNO_unit<-data.frame(intersect(intersect(BN_midmod$Genus,BS_midmod$Genus),BO_midmod$Genus))
+row.names(SNO_unit)<-SNO_unit$intersect.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.
+SNO_unit$site<-"no"
+for (i in SNO_unit$intersect.intersect.BN_midmod.Genus..BS_midmod.Genus...BO_midmod.Genus.){
+  if (abs(BN_midmod[i,]$freq.pred/BN_midmod[i,]$freq-1)>abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+   if (abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1)>abs(BS_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+     SNO_unit[i,2]<-"Saliva"
+   else
+     SNO_unit[i,2]<-"Oroph"
+  else
+  if (abs(BO_midmod[i,]$freq.pred/BO_midmod[i,]$freq-1)>abs(BN_midmod[i,]$freq.pred/BS_midmod[i,]$freq-1))
+    SNO_unit[i,2]<-"Nasal"
+  else
+    SNO_unit[i,2]<-"Oroph"
+     
+} 
+
+
+# 合并所有的最优解
+# 统一列名
+colnames(SNO_unit)<-c("Genus","site")
+colnames(SN_unit)<-c("Genus","site")
+colnames(OS_unit)<-c("Genus","site")
+colnames(ON_unit)<-c("Genus","site")
+colnames(BN_unit)<-c("Genus","site")
+colnames(BO_unit)<-c("Genus","site")
+colnames(BS_unit)<-c("Genus","site")
+best_site<-rbind.data.frame(SNO_unit,SN_unit,OS_unit,ON_unit,BN_unit,BO_unit,BS_unit)
+best_site_Saliva<-subset(best_site,site=="Saliva")
+best_site_Nasal<-subset(best_site,site=="Nasal")
+best_site_Oroph<-subset(best_site,site=="Oroph")
+
+Oroph_pool_best<-Oroph_pool[rownames(Oroph_pool)%in%best_site_Oroph$Genus,]
+Saliva_pool_best<-Saliva_pool[rownames(Saliva_pool)%in%best_site_Saliva$Genus,]
+Nasal_pool_best<-Nasal_pool[rownames(Nasal_pool)%in%best_site_Nasal$Genus,]
+
+
+
+# 筛选
+pair_name<-read.table("pair_sample.txt",header = TRUE,row.names = 1)
+pair_name<-subset(pair_name,pair_name$Saliva%in%sample_names(LungCancer_Normalized_Saliva_LCG))
+pair_name<-pair_name[,3:5]
+
+pair_name<-na.omit(pair_name)
+Nasal_pool_best<-Nasal_pool_best[,colnames(Nasal_pool_best)%in%pair_name$Nasal]
+
+Oroph_pool_best<-Oroph_pool_best[,colnames(Oroph_pool_best)%in%pair_name$Oroph]
+
+Saliva_pool_best<-Saliva_pool_best[,colnames(Saliva_pool_best)%in%pair_name$Saliva]
+
+colnames(Saliva_pool_best)<-rownames(pair_name)
+
+colnames(Oroph_pool_best)<-rownames(pair_name)
+
+colnames(Nasal_pool_best)<-rownames(pair_name)
+best_pool<-rbind.data.frame(Saliva_pool_best,Oroph_pool_best,Nasal_pool_best)
+
+BAL_spp<-OTU_TAX_Genus[,colnames(OTU_TAX_Genus)%in%sample_names(LungCancer_Normalized_BAL_LCG)]
+
+
+
+# 统计BAL中存在的物种树
+table<-BAL_spp[rowSums(BAL_spp)>0,]
+
+
+
+spp <-t(BAL_spp)
+pool <-t(best_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+colnames(tax_id)<-"Genus"
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+
+data<-spp.out$predictions
+
+
+data<-merge(data,best_site,by="Genus")
+
+spp.out$predictions<-data
+spp.out$predictions$site<-as.factor(spp.out$predictions$site)
+
+
+plot_sncm_fit(spp.out)+ #设置总的标题
+    theme_bw()+ #背景变为白色
+    theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())+geom_point(aes(x = log(p), y = freq, fill =site),shape=21,size = 2, alpha = 0.75)+scale_fill_manual(name = "Sites",values = c(`Saliva` = "#FFDEAD", `Oroph` = "#7FFFD4", `Nasal` = "#800000"))+theme(legend.position="none")+xlab(expression(paste(log[10],"(Mean Relative Abundance in Source)")))+ylab("Frequency in BAL")
+
+ggplot(data,aes(x=site,y=freq))+ #”fill=“设置填充颜色
+  stat_boxplot(geom = "errorbar",width=0.15,aes(color="black"))+ #由于自带的箱形图没有胡须末端没有短横线，使用误差条的方式补上
+  geom_boxplot(size=0.5,fill="white",outlier.fill="white",outlier.color="white")+ #size设置箱线图的边框线和胡须的线宽度，fill设置填充颜色，outlier.fill和outlier.color设置异常点的属性
+  geom_jitter(aes(fill=site),width =0.2,shape = 21,size=2.5)+ #设置为向水平方向抖动的散点图，width指定了向水平方向抖动，不改变纵轴的值
+  scale_fill_manual(values = c("#800000","#7FFFD4","#FFDEAD"))+  #设置填充的颜色
+  scale_color_manual(values=c("black","black","black"))+ #设置散点图的圆圈的颜色为黑色
+  ggtitle("")+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme(legend.position="none", #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())+
+  ylab("BAL Freq")+xlab("")
+```

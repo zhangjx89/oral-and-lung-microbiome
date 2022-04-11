@@ -1,0 +1,44 @@
+---
+title: "figure_4c"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# figure_4c
+```{r}
+# 绘制关键节点气泡图
+
+# 读取表格
+
+Netshift_table<-read.table("netshift_table.txt",header = TRUE,row.names = 1,sep = "\t")
+
+
+Netshift_table<-subset(Netshift_table,DelBet > 0)
+Netshift_table$Genus<-rownames(Netshift_table)
+
+
+data<-OTU_TAX_Genus_RA_Saliva
+data$mean<-rowSums(data)/81
+data<-data[rownames(data)%in%Netshift_table$Genus,]
+
+data$Genus<-row.names(data)
+
+data<-data[,82:83]
+Netshift_table<-merge(Netshift_table,data,by="Genus")
+
+colnames(Netshift_table)[5]<-"Degree"
+colnames(Netshift_table)[12]<-"Mean RA" 
+
+ggplot(Netshift_table,aes(NESH.score,Genus)) +geom_point()+geom_point(aes(size=Union))+theme_light()
+ggplot(Netshift_table,aes(NESH.score,Genus)) +geom_point()+geom_point(aes(size=Degree,color=log10(`Mean RA`)))+theme_light()+
+scale_color_gradient(low="green",high = "red")+ theme(
+          axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+          axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+          axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+          axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+          plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #不显示网格线
+          panel.grid.minor = element_blank())
+
+```

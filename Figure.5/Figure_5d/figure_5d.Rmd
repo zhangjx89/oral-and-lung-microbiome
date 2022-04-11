@@ -1,0 +1,203 @@
+---
+title: "figure_5d"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+# figure_5d
+
+```{r}
+
+OTU_TAX_Genus_RA_Saliva<-OTU_TAX_Genus_RA[,colnames(OTU_TAX_Genus_RA)%in%sample.names(LungCancer_Normalized_Saliva)]
+data<-data.frame(t(OTU_TAX_Genus_RA_Saliva))
+data$ID<-rownames(data)
+
+data<-merge(data,sample_data_Saliva,by="ID")
+source<-sample_data_BAL[,c("index","Saliva")]
+
+data<-merge(data,source,by="index")
+
+
+corr_results<-corr.test(data$Saliva,data[,3:628])
+
+corr_results_p<-t(data.frame(corr_results$p))
+
+
+OTU_TAX_Genus_species<-data.frame(otu_table(LungCancer_Bacteria_species))
+
+LungCancer_Bacteria_species<-
+
+
+
+OTU_TAX_Genus_species_Saliva<-OTU_TAX_Genus_species[,colnames(OTU_TAX_Genus_species)%in%sample.names(LungCancer_Normalized_Saliva)]
+data<-data.frame(t(OTU_TAX_Genus_species_Saliva))
+data$ID<-rownames(data)
+
+data<-merge(data,sample_data_Saliva,by="ID")
+source<-sample_data_BAL[,c("index","Saliva")]
+
+data<-merge(data,source,by="index")
+
+#colnames(data)[3:5773]<-species.tax$Species[1:5771]
+corr_results<-corr.test(x=data[,"Saliva"],y=data[,3:5773],method = 'spearman',adjust = "none")
+
+corr_results_p<-t(data.frame(corr_results$p))
+
+row.names(corr_results_p)<-species.tax$Species[1:5771]
+
+
+
+
+
+ggplot(data, aes(x=s__Burkholderia_vietnamiensis	, y= Saliva)) +
+    geom_point(aes(fill=CT),shape = 21,size=3) +
+    geom_smooth(method = "lm", alpha = 0.3, size = 1 ) +
+    theme_bw()+ #背景变为白色
+    theme(legend.position="none", #不需要图例
+          axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+          axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+          axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+          axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+          plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+          panel.grid.major = element_blank(), #不显示网格线
+          panel.grid.minor = element_blank())+stat_cor(method = "spearman")+xlab("Porphyromonas in Nasal")+ylab("Leptotrichia in BAL")
+
+
+
+LungCancer_Bacteria_species_Saliva<-subset_samples(LungCancer_Bacteria_species,sample=="Saliva")
+
+count<-data.frame(t(otu_table(LungCancer_Bacteria_species_Saliva)))
+
+sample<-data.frame(sample_data(LungCancer_Bacteria_species_Saliva))
+a<-count
+count<-count[,colSums(count)>30000]
+
+
+#count<-count[,colSums(count)!=0]
+count$CT<-sample$CT
+
+#把g_Prevotella+g_Prevotella.7加在一起
+
+count$CT<-ifelse(count$CT == "HCG", 1, 0)
+count$CT<-as.factor(count$CT)
+colnames( count)<-gsub(" ", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("-", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("(", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub(")", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("[", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("]", "", colnames( count), fixed = TRUE)
+
+
+set.seed(2020)
+count_rf <- AUCRF(CT~., data=count, ranking='MDA', ntree=500, pdel=0.2)
+
+var<-count_rf$Xopt
+#预测值
+count_rf_probs <- predict(count_rf$RFopt, type='prob')[,2]
+#
+count_rf_roc1 <- roc(count$CT~count_rf_probs,smooth=FALSE )
+
+
+devroc1 <-plot.roc(count_rf_roc1, main="dev ROC", percent=TRUE, col="1")
+
+
+
+MGS_species<-data.frame(count_rf$Xopt)
+
+colnames(MGS_species)<-"ID"
+
+data<-Bacteria_species_tax
+data$ID<-rownames(data)
+MGS_species<-merge(MGS_species,data,by="ID")
+
+
+
+
+
+
+
+
+
+
+count<-data.frame(t(otu_table(LungCancer_Normalized_Saliva)))
+
+sample<-data.frame(sample_data(LungCancer_Normalized_Saliva))
+
+
+
+#count<-count[,colSums(count)!=0]
+count$CT<-sample$CT
+
+#把g_Prevotella+g_Prevotella.7加在一起
+
+count$CT<-ifelse(count$CT == "HCG", 1, 0)
+count$CT<-as.factor(count$CT)
+colnames( count)<-gsub(" ", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("-", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("(", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub(")", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("[", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("]", "", colnames( count), fixed = TRUE)
+
+count<-na.omit(count)
+set.seed(2020)
+count_rf <- AUCRF(CT~., data=count, ranking='MDA', ntree=500, pdel=0.2)
+
+var<-count_rf$Xopt
+#预测值
+count_rf_probs <- predict(count_rf$RFopt, type='prob')[,2]
+#
+count_rf_roc2 <- roc(count$CT~count_rf_probs,smooth=FALSE )
+
+
+
+
+
+
+
+
+
+
+
+
+count<-data.frame(t(OTU_TAX_Genus_Saliva))
+
+sample<-data.frame(sample_data(LungCancer_Normalized_Saliva))
+
+
+
+#count<-count[,colSums(count)!=0]
+count$CT<-sample$CT
+
+#把g_Prevotella+g_Prevotella.7加在一起
+
+count$CT<-ifelse(count$CT == "HCG", 1, 0)
+count$CT<-as.factor(count$CT)
+colnames( count)<-gsub(" ", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("-", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("(", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub(")", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("[", "", colnames( count), fixed = TRUE)
+colnames( count)<-gsub("]", "", colnames( count), fixed = TRUE)
+
+count<-na.omit(count)
+set.seed(2020)
+count_rf <- AUCRF(CT~., data=count, ranking='MDA', ntree=500, pdel=0.2)
+
+var<-count_rf$Xopt
+#预测值
+count_rf_probs <- predict(count_rf$RFopt, type='prob')[,2]
+#
+count_rf_roc3 <- roc(count$CT~count_rf_probs,smooth=FALSE )
+
+devroc1 <- plot.roc(count_rf_roc1, main="dev ROC", percent=TRUE, col="1")
+
+devroc2 <- lines.roc(count_rf_roc2, percent=TRUE, col="2")
+
+devroc3 <- lines.roc(count_rf_roc3, percent=TRUE, col="3")
+
+
+legend("bottomright", legend=c("Species=0.857", "ASV=0.844" ,"Genus=0.732"), col=c("1", "2","3"), lwd=2)
+
+```
