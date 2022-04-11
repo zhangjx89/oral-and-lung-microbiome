@@ -1,0 +1,30 @@
+---
+title: "figure_2a"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+
+# figure_2a
+```{r}
+# 读取SourceTracker的结果
+
+SourceTracker<-read.table("Saliva_BAL_results_proportions.txt",header = TRUE,row.names = 1)
+
+# 寻找波谷作为分组阈值
+x<-density(SourceTracker$Saliva)$x
+y<-density(SourceTracker$Saliva)$y
+data<-data.frame(x,y)
+y<-y[113:400]
+
+site<-which.min(y)
+peak.x<-x[113+site]
+
+# 绘制核密度图
+dense = data.frame(density(mtcars$mpg)[c('x','y')])
+
+
+ggplot(SourceTracker, aes(x = Saliva))+geom_histogram(aes(y = stat(density)), color = "black", fill = "gray",bins = 10)+geom_density(fill = "lightgray",alpha = 0.5)+theme_classic()+geom_vline(aes(xintercept = 0.4256845), linetype = "dashed")+geom_area(data = subset(dense,x >= 0 & x < 0.4256845), aes(x, y, fill = "LST"), alpha=.4)+geom_area(data = subset(dense,x >= 0.425684 & x < 1), aes(x, y, fill = "OLT"), alpha=.4)+scale_fill_manual("CT", breaks = c("LST", "OLT"),values = c("OLT"="#F8766D", "LST"="#00BFC4"))
+```

@@ -1,0 +1,10 @@
+sample	value	group
+Saliva	63.61451376	predicted
+Nasal	7.536836059	predicted
+Oroph	68.87589346	predicted
+Saliva	14.69926933	Above
+Nasal	85.01734652	Above
+Oroph	9.674993519	Above
+Saliva	15.42711556	Below
+Nasal	6.529141646	Below
+Oroph	16.69696184	Below

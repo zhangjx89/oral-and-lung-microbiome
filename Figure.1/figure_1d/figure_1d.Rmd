@@ -1,0 +1,19 @@
+---
+title: "figure_1d"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# figure.1d
+
+```{r}
+
+SUM<-read.table("SUM.txt",header = TRUE,row.names = 1)
+
+p<-ggplot(data= SUM, mapping=aes(x=sample,y=value))+
+    geom_bar(aes(fill=group),stat="identity",position="dodge")+scale_fill_manual(name = "Group", values = c(`predicted` = "blue", `Above`="cyan4",`Below`="goldenrod" ))+theme_bw()+theme(axis.text.x=element_text(colour="black",family="Times",size=14,angle =30,vjust = 1,hjust = 1))
+
+```
+

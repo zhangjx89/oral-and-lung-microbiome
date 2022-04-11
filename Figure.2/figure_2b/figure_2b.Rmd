@@ -1,0 +1,88 @@
+---
+title: "figure_2b"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+# figure_2b
+
+```{r}
+set.seed(1024)
+#BAL
+
+## 计算Bray_curtis距离矩阵
+dis_bray<- phyloseq::distance(LungCancer_Normalized_BAL, "bray")
+
+## 采用PCoA的方法对距离矩阵进行降维
+dis_bray.pcoa = ordinate(LungCancer_Normalized_BAL, method="PCoA", distance=dis_bray)
+
+## 绘制初始图形
+bray.pcoa <- plot_ordination(LungCancer_Normalized_BAL, dis_bray.pcoa, color="CT" ) + geom_point(size=3)
+
+## 提取图形数据
+data<-bray.pcoa$data
+
+## 修改列名
+colnames(data)[1:2]<-c("PC1","PC2")
+
+## 获取主坐标轴1,2的解释度
+pc1<-17
+pc2<-7
+
+data$CT<-ifelse(data$CT=="HCG","OLT","LST")
+data$CT<-factor(data$CT,levels = c("OLT","LST"))
+data$DMM_CT<-SourceTracker$CT_DMM
+data$test<-if_else(((data$CT=="OLT")&(data$DMM_CT=="type1"))|((data$CT=="LST")&(data$DMM_CT=="type2")),"TRUE","FALSE")
+data$test<-factor(data$test,levels = c("TRUE","FALSE"))
+colnames(data)[1:2]<-c("PC1","PC2")
+
+## 获取主坐标轴1,2的解释度
+pc1<-17
+pc2<-7
+# BAL:"#0000FF"   Oroph:"#FF0000"  Saliva: "#FFA500"
+
+#用于填充样本点的颜色
+cbbPalette <- c("#0000FF","#800000","#FF0000","#FFA500")
+#样本点的边框颜色
+Palette <- c("#000000", "#000000","#000000","#000000","#000000","#000000")
+#用于样本点的形状，注意：有一些样本点形状边框和填充的颜色是一起的不能独立
+pich=c(21,21,21,21,21,21)
+
+#匹配横纵坐标
+p<-ggplot(data, aes(PC1, PC2)) +
+  #绘制样本点，根据分组匹配颜色和形状，size调整点的大小
+  geom_point(aes(colour=CT,shape=test,fill=CT),alpha=0.8,size=4)+
+  #匹配形状、边框和填充的图例
+  scale_shape_manual(values=pich)+
+  scale_colour_manual(values=Palette)+
+  #scale_fill_manual(values=cbbPalette)+
+  #设置标题和横纵坐标label文字
+  labs(title="PCoA - The composition of microbiome") + 
+  xlab(paste("PC1 ( ",pc1,"%"," )",sep="")) + 
+  ylab(paste("PC2 ( ",pc2,"%"," )",sep=""))+
+  theme(text=element_text(size=30))+
+  #添加横纵两条虚线
+  geom_vline(aes(xintercept = 0),linetype="dotted")+
+  geom_hline(aes(yintercept = 0),linetype="dotted")+
+  #调整背景、坐标轴、图例的格式
+  theme(legend.position="none",
+    panel.background = element_rect(fill='white', colour='black'),
+        panel.grid=element_blank(), 
+        axis.title = element_text(color='black',size=14),
+        axis.ticks.length = unit(0.4,"lines"), axis.ticks = element_line(color='black'),
+        axis.line = element_line(colour = "black"), 
+        axis.title.x=element_text(colour='black', size=14),
+        axis.title.y=element_text(colour='black', size=14),
+        axis.text=element_text(colour='black',size=14),
+        legend.title=element_blank(),
+        legend.text=element_text(size=14),
+        legend.key=element_blank(),
+        legend.background = element_rect(colour = "black"),
+        legend.key.height=unit(1.6,"cm"))+
+  #设置标题的格式
+  theme(plot.title = element_text(size=14,colour = "black",hjust = 0.5,face = "bold"))
+
+otu.adonis<-adonis(dis_bray ~ CT, data = data)
+
+```

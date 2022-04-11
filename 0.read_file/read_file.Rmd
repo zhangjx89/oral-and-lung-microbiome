@@ -1,0 +1,122 @@
+---
+title: "Untitled"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# 导入所需要的包
+
+```{r setup, include=FALSE}
+library(vegan)
+library(picante)
+library(phyloseq)
+library(ggplot2)
+library(GUniFrac)
+library(plyr)
+library(ggpubr)
+library(microbiome)
+library(reshape2)
+library(plotly)
+library(patchwork)
+library(VennDiagram)
+library(biomformat)
+library(RColorBrewer)
+library(psych)
+library(corrplot)
+library(ggrepel)
+library(Rtsne)
+library(igraph)
+library(plyr)
+library(pROC)
+library(tidyverse)
+library(caret)
+library(randomForest)
+library(AUCRF)
+library(tableone)
+library(DirichletMultinomial)
+library(car)
+library(reltools)
+library(minpack.lm)
+library(Hmisc)
+library(DescTools)
+library(vcdExtra)
+library(ggalluvial)
+library(ComplexHeatmap)
+library(circlize)
+library(RCy3)
+library(brainGraph)
+library(Cairo)
+library(showtext)
+
+```
+
+
+
+
+
+
+
+# 读取数据
+
+```{r}
+## 读取数据表格
+TableOneData<-read.table("TableOne_data.txt",sep = "\t",header = TRUE,row.names = 1)
+
+## 过滤掉没有测序数据且非肺癌的患者信息
+TableOneData<-subset(TableOneData,data=="yes"&diagnosis%in%c("Cancer","Health"))
+
+#读取由QIIME生成的biom文件
+OtuTable.biom = read_biom("feature-table.10000.biom")
+
+#将biom对象转化成矩阵对象
+OtuTable<-as(biom_data(OtuTable.biom), "matrix")
+
+#读取TAX
+TaxTable<-read.table("silva.taxonomy.txt",sep="\t",row.names = 1,header = TRUE,stringsAsFactors = FALSE)
+TaxTable <- as.matrix(TaxTable)
+
+#读取metadata
+MetaTable<-read.table("metadata_new.txt",sep="\t",row.names = 1,header = TRUE)
+TableOneData<-read.table("TableOne_data.txt",sep = "\t",header = TRUE,row.names = 1)
+TableOneData$index<-row.names(TableOneData)
+MetaTable<-merge(MetaTable,TableOneData,by = "index")
+rownames(MetaTable)<-MetaTable$ID
+
+#生成phyloseq对象
+OTU = otu_table(OtuTable, taxa_are_rows = TRUE)
+samples = sample_data(MetaTable)
+TAX = tax_table(TaxTable)
+LungCancer <- phyloseq(OTU, TAX, samples)
+
+# 删除过程变量
+rm(OtuTable.biom)
+rm(OtuTable)
+
+```
+
+# 过滤数据
+```{r}
+
+#过滤掉未确诊或非肺癌患者
+LungCancer_TURE<-subset_samples(LungCancer,diagnosis%in%c("Cancer","Health"))
+
+#过滤掉肺癌患者的健康侧BAL
+LungCancer_TURE<-subset_samples(LungCancer_TURE,!(BALgroup=="HS"))
+
+#选择腺癌患者和对照组
+LungCancer_Normalized<-subset_samples(LungCancer_TURE, type%in%c("腺癌","Health"))
+
+#过滤掉使用过抗生素的人群
+LungCancer_Normalized<-subset_samples(LungCancer_Normalized,抗生素使用=="N")
+#过滤掉reads数少于10的ASV
+LungCancer_Normalized <- filter_taxa(LungCancer_Normalized,function(x) sum(x) > 10 , TRUE )
+# 去除环境样本
+
+LungCancer_Normalized<-subset_samples(LungCancer_Normalized,!(sample=="Env"))
+
+rm(LungCancer)
+rm(LungCancer_TURE)
+
+```

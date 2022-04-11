@@ -1,0 +1,38 @@
+---
+title: "figure_1c"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+
+# figure_1c
+
+```{r}
+# BAL-Saliva
+BAL_spp<-read.table("BAL_spp.txt",header = TRUE,row.names = 1)
+Saliva_pool<-read.table("Saliva_pool.txt",header = TRUE,row.names = 1)
+OTU_TAX_Genus<-read.table("OTU_TAX_Genus.txt",header = TRUE,row.names = 1)  
+  
+  
+spp <-t(BAL_spp)
+pool <-t(Saliva_pool)
+
+tax_id<-data.frame(row.names(OTU_TAX_Genus))
+row.names(tax_id)<-tax_id$row.names.OTU_TAX_Genus.
+colnames(tax_id)<-"Genus"
+spp.out <- fit_sncm(spp, pool=pool, taxon=tax_id)
+
+P_BS <- plot_sncm_fit(spp.out)+ #设置总的标题
+  theme_bw()+ #背景变为白色
+  theme( #不需要图例
+        axis.text.x=element_text(colour="black",family="Times",size=14), #设置x轴刻度标签的字体属性
+        axis.text.y=element_text(family="Times",size=14,face="plain"), #设置x轴刻度标签的字体属性
+        axis.title.y=element_text(family="Times",size = 14,face="plain"), #设置y轴的标题的字体属性
+        axis.title.x=element_text(family="Times",size = 14,face="plain"), #设置x轴的标题的字体属性
+        plot.title = element_text(family="Times",size=15,face="bold",hjust = 0.5), #设置总标题的字体属性
+        panel.grid.major = element_blank(), #不显示网格线
+        panel.grid.minor = element_blank())
+
+
+```

@@ -1,0 +1,248 @@
+"HC006"	"HC007"	"HC008"	"HC012"	"HC025"	"HC029"	"HC030"	"HC035"	"LC035"	"LC043"	"LC052"	"LC053"	"LC054"	"LC089"	"LC091"	"LC097"	"LC101"	"LC110"	"LC116"	"LC121"	"LC123"
+"g_[Eubacterium] brachy group"	3	14	16	0	7	0	2	4	3	2	17	16	6	0	0	2	5	4	0	0	0
+"g_[Eubacterium] saphenum group"	11	1	0	0	0	0	9	12	29	39	4	55	0	19	23	15	0	1	0	0	9
+"g_[Eubacterium] yurii group"	5	9	1	0	3	7	41	0	2	13	0	0	0	0	0	10	5	0	11	0	0
+"g_Abiotrophia"	5	3	1	0	11	9	10	0	5	0	3	4	7	0	34	2	0	0	10	2	0
+"g_Acholeplasma"	0	0	0	0	0	0	0	7	1	1	0	0	0	0	6	67	0	0	2	0	4
+"g_Actinobacillus"	0	24	0	126	0	0	0	0	141	1	0	25	14	0	0	0	14	0	0	0	36
+"g_Actinomyces"	149	86	39	45	96	29	31	43	29	18	71	50	105	96	37	64	22	143	17	27	25
+"g_Aggregatibacter"	107	50	177	123	97	108	62	128	359	42	3	162	45	6	31	15	91	16	54	151	29
+"g_Alloprevotella"	139	101	277	375	329	266	90	748	1079	213	352	159	270	133	0	194	121	131	162	450	358
+"g_Alysiella"	0	0	0	0	0	8	0	0	14	10	0	0	0	0	0	0	17	0	0	0	0
+"g_Anaeroglobus"	0	0	2	2	0	0	3	0	0	0	18	4	3	0	0	0	4	0	0	0	0
+"g_Candidatus Udaeobacter"	0	2	3	2	0	0	0	0	0	0	4	2	0	0	0	0	0	0	0	0	0
+"g_Capnocytophaga"	63	42	83	115	26	49	202	31	128	169	203	29	26	86	1	45	77	17	70	53	0
+"g_Cardiobacterium"	7	1	15	18	6	1	1	0	16	3	0	3	4	5	0	4	3	6	2	4	0
+"g_Catonella"	10	49	23	7	19	20	17	13	23	40	13	8	17	28	0	55	30	29	94	12	3
+"g_Clostridiales bacterium canine oral taxon 162"	3	0	0	1	0	0	0	0	19	6	0	8	0	11	0	13	2	1	3	47	7
+"g_Clostridium sensu stricto 1"	3	8	5	4	0	0	0	0	0	0	17	10	6	0	0	0	0	0	0	0	0
+"g_Comamonas"	3	1	7	11	2	0	6	0	25	6	0	3	0	0	5	0	0	0	13	0	0
+"g_Defluviitaleaceae UCG-011"	2	4	0	3	0	0	0	6	12	12	4	2	0	3	0	17	4	0	2	0	0
+"g_Desulfobulbus"	0	0	0	0	0	0	0	0	0	0	2	0	0	0	26	0	0	0	0	0	0
+"g_Desulfomicrobium"	0	0	0	0	0	0	0	0	18	0	0	7	2	0	0	0	0	0	0	0	0
+"g_Desulfovibrio"	0	0	0	0	0	0	0	1	0	2	0	22	0	0	0	7	0	0	1	0	0
+"g_Dialister"	17	15	6	5	34	18	14	12	3	6	31	12	13	5	0	16	25	30	48	43	0
+"g_Ellin6067"	9	10	11	12	0	0	0	0	0	0	8	14	7	0	0	0	0	0	0	0	0
+"g_Erysipelotrichaceae UCG-006"	0	0	0	0	0	0	0	0	0	0	0	0	0	5	0	0	14	0	5	0	0
+"g_Ferruginibacter"	0	0	7	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Filifactor"	11	6	16	8	6	11	12	29	10	21	10	37	17	17	0	27	51	17	60	32	36
+"g_Finegoldia"	0	0	0	0	15	20	8	18	0	0	0	0	0	0	0	0	0	11	17	14	12
+"g_Firmicutes oral clone FM046"	0	2	0	0	0	8	5	0	0	5	1	2	16	5	0	12	0	1	2	10	10
+"g_Fusobacterium"	231	519	603	525	488	765	798	1371	731	673	16	949	1339	142	232	768	711	606	1480	817	204
+"g_Granulicatella"	156	107	66	73	111	110	66	30	52	26	190	91	133	57	8	46	108	200	165	17	7
+"g_Howardella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Ignavibacterium"	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Lachnoanaerobaculum"	30	29	38	11	164	32	6	60	19	27	128	7	44	9	0	24	23	46	40	12	16
+"g_Lachnospira"	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Leptotrichia"	608	36	785	237	433	346	194	146	234	133	162	193	130	91	0	397	99	379	245	95	13
+"g_Megasphaera"	16	12	3	1	57	33	2	4	11	5	226	6	14	14	117	22	5	64	4	15	2
+"g_Mesorhizobium"	0	0	0	0	0	0	0	0	2	5	0	0	0	0	0	0	0	0	0	0	0
+"g_MND1"	5	0	0	3	0	0	0	0	0	0	9	15	0	0	0	0	0	0	0	0	2
+"g_Mobiluncus"	1	0	0	0	0	0	0	0	0	0	26	4	0	9	0	4	0	0	1	0	0
+"g_Mogibacterium"	14	17	10	3	17	5	0	4	2	4	52	6	14	41	0	0	2	10	9	3	0
+"g_Moraxella"	2	0	0	100	0	1	2	17	75	15	0	4	0	0	0	0	0	0	24	4	0
+"g_Murdochiella"	0	0	0	0	2	3	3	4	0	0	9	0	0	0	0	0	0	6	9	2	0
+"g_Mycoplasma"	2	0	90	2	6	5	0	13	90	202	51	17	6	27	91	36	121	23	19	126	34
+"g_Oryzihumus"	0	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Parvimonas"	45	79	82	11	14	27	11	63	13	18	88	85	232	44	13	6	26	12	53	17	0
+"g_Peptococcus"	26	10	35	17	0	3	0	5	8	4	5	15	28	1	0	3	2	6	39	2	0
+"g_Peptostreptococcus"	109	150	114	31	26	9	15	21	13	67	157	38	155	118	0	17	44	65	28	22	17
+"g_Phocaeicola"	0	1	0	2	0	0	0	0	2	1	0	2	0	0	28	8	0	4	6	1	0
+"g_Phyllobacterium"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4
+"g_Prevotella"	1072	915	638	575	502	308	632	824	339	322	347	218	684	648	5	536	429	526	431	535	160
+"g_Prevotella 1"	2	48	1	13	10	12	13	4	38	335	322	0	14	13	0	0	90	1	12	45	29
+"g_Prevotella 2"	52	73	60	32	21	20	6	50	46	76	105	25	44	31	0	37	67	31	41	32	22
+"g_Prevotella 6"	105	123	25	30	180	49	79	76	19	36	55	13	32	482	77	107	17	235	36	74	23
+"g_Prevotella 7"	1568	1507	567	858	2852	1217	1192	751	197	587	1540	696	1188	761	11	921	167	1542	1283	2214	257
+"g_Pseudoduganella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	8
+"g_Pyramidobacter"	0	0	0	0	0	0	0	0	0	0	1	0	0	0	2	0	0	0	0	0	0
+"g_RB41"	4	3	0	1	0	0	0	0	0	0	12	0	0	0	0	0	0	0	0	0	0
+"g_Rhodoferax"	7	4	13	13	0	0	0	0	0	0	0	11	12	0	0	0	0	0	0	0	0
+"g_Rikenellaceae RC9 gut group"	0	0	0	6	0	2	0	0	5	89	13	5	2	3	0	32	9	3	2	2	4
+"g_Ruminiclostridium 6"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0
+"g_Selenomonas 4"	4	10	13	0	0	0	0	0	0	6	4	7	0	10	3	14	5	0	4	8	0
+"g_Shuttleworthia"	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	6	9	2	0
+"g_Steroidobacter"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2
+"g_Stomatobaculum"	5	12	8	1	47	26	3	24	1	6	54	5	41	13	0	16	13	47	7	14	0
+"g_Streptobacillus"	0	0	0	0	10	2	0	3	24	3	0	4	0	0	0	2	0	0	0	0	6
+"g_SWB02"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2
+"g_Tannerella"	14	10	19	4	0	3	2	4	66	15	13	4	19	20	38	18	20	5	22	27	10
+"g_Thermomonas"	2	2	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0
+"g_Tropheryma"	0	0	0	0	7	2	3	1	0	0	0	0	0	0	0	0	0	7	4	3	2632
+"g_Veillonella"	420	179	108	52	669	283	204	650	129	173	1696	282	398	135	2173	228	300	699	224	174	86
+"g_Wolinella"	1	0	0	0	0	0	0	0	4	7	0	3	0	5	0	9	0	0	9	0	0
+"g_[Eubacterium] nodatum group"	15	16	11	8	12	11	6	10	5	8	91	12	37	14	5	17	12	30	8	5	25
+"g_Achromobacter"	6	3	0	4	0	0	0	0	0	0	1	5	3	0	0	0	0	0	0	0	0
+"g_Aeromonas"	15	15	18	20	0	0	0	0	0	0	10	7	11	0	0	0	0	0	0	0	0
+"g_Agathobacter"	0	0	0	0	3	0	2	0	0	0	0	0	0	0	0	0	0	1	0	0	0
+"g_Anaerococcus"	2	0	0	0	2	6	5	2	0	0	0	0	0	4	0	0	0	2	5	5	5
+"g_Asteroleplasma"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"g_Atopobium"	42	33	12	10	48	25	12	22	4	17	148	32	60	19	37	21	2	121	8	44	28
+"g_Bacteroides"	1	0	3	0	0	0	0	0	2	0	9	2	0	0	12	12	1	0	0	5	11
+"g_Bartonella"	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0
+"g_Bosea"	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Brachybacterium"	4	6	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0
+"g_Brevibacterium"	3	9	3	3	0	0	0	0	0	1	4	5	2	0	0	0	0	0	0	0	0
+"g_Bulleidia"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	19
+"g_Burkholderia-Caballeronia-Paraburkholderia"	1	0	0	0	0	0	0	0	0	0	16	0	1	0	6	0	13	0	0	0	0
+"g_Butyrivibrio 2"	2	2	0	0	1	7	0	0	2	0	69	1	0	4	0	2	0	12	1	0	12
+"g_Candidatus Brocadia"	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Candidatus Saccharimonas"	0	2	0	3	0	0	0	0	0	1	0	1	0	2	0	3	0	0	0	1	0
+"g_Chryseobacterium"	5	0	2	1	0	0	0	0	0	1	29	3	0	0	5	0	0	0	0	0	0
+"g_Corynebacterium"	1	0	9	5	4	0	10	0	0	0	0	0	0	0	5	2	27	0	0	0	5
+"g_Corynebacterium 1"	22	26	18	13	21	31	19	14	32	22	23	20	17	44	2	6	11	23	35	20	28
+"g_Cutibacterium"	0	0	0	3	6	3	9	0	0	0	2	0	0	4	0	0	0	4	4	0	8
+"g_Deinococcus"	3	3	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0
+"g_Dolosigranulum"	0	0	0	0	2	4	5	1	0	0	0	0	0	7	1	0	0	0	4	2	2
+"g_Eggerthia"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2
+"g_Elizabethkingia"	1	1	0	3	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"g_Emticicia"	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Enhydrobacter"	18	22	17	35	0	3	0	0	60	20	12	19	21	5	0	0	0	0	9	0	0
+"g_Enterococcus"	6	0	0	0	0	0	0	0	0	0	0	0	0	0	14	25	44	0	0	0	0
+"g_Escherichia-Shigella"	4	4	11	5	0	0	0	0	0	0	5	7	3	0	6	7	10	0	0	0	0
+"g_F0058"	4	0	0	1	0	0	1	0	2	2	3	0	1	0	9	26	4	2	0	3	11
+"g_Family XIII AD3011 group"	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0
+"g_Family XIII UCG-001"	0	2	1	0	0	0	0	0	0	0	12	0	1	0	0	0	0	0	0	0	2
+"g_Fretibacterium"	0	0	0	1	0	0	0	0	1	2	10	0	0	0	4	0	0	0	0	0	0
+"g_Gemella"	60	75	414	60	29	58	2283	18	22	9	120	17	18	30	1	11	485	27	73	43	188
+"g_Haemophilus"	651	637	920	903	535	665	542	761	246	356	40	393	299	288	0	145	595	249	1476	716	930
+"g_Johnsonella"	0	2	6	0	1	5	2	5	1	3	6	21	6	17	1	21	2	7	14	16	14
+"g_Lawsonella"	0	0	0	0	2	0	1	0	0	0	0	0	0	4	0	0	1	3	1	3	3
+"g_Methylobacterium"	0	0	1	8	0	0	0	0	0	2	11	1	2	0	0	0	0	0	0	0	0
+"g_Neisseria"	2302	1424	2310	768	1312	2064	753	1365	1131	2372	252	1089	1120	2523	132	569	1927	510	1632	1529	1007
+"g_Nitrospira"	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Novosphingobium"	0	0	0	1	0	0	0	0	0	1	22	0	0	0	0	0	0	0	0	0	0
+"g_Odoribacter"	0	0	0	0	0	0	0	0	0	0	5	0	0	0	2	0	0	0	0	0	5
+"g_Oribacterium"	29	8	13	37	17	6	6	7	4	11	197	8	6	11	0	11	0	17	5	8	10
+"g_Parabacteroides"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	28	13	1	0	0	0	0
+"g_Paracoccus"	0	1	7	2	0	0	0	0	3	0	14	3	8	0	0	0	0	0	0	0	0
+"g_Peptoanaerobacter"	0	0	0	0	0	0	0	0	0	0	6	0	0	0	0	0	0	4	0	0	0
+"g_Peptoniphilus"	0	0	0	0	1	2	7	0	0	0	3	0	0	2	3	0	5	11	7	5	6
+"g_Porphyromonas"	249	566	846	749	175	393	459	498	424	526	751	153	398	48	7925	221	493	330	587	218	809
+"g_Roseomonas"	1	0	0	2	0	0	0	0	0	0	4	3	1	0	0	0	0	0	0	0	0
+"g_Ruminococcaceae UCG-014"	40	7	5	5	18	12	2	20	11	11	127	18	23	17	0	4	6	0	2	15	5
+"g_Selenomonas"	0	2	0	4	0	0	0	0	2	4	24	0	0	0	0	0	0	6	0	0	0
+"g_Selenomonas 3"	5	4	5	4	11	8	0	0	4	27	158	2	6	7	0	45	0	20	0	1	18
+"g_Solobacterium"	30	34	55	23	33	17	5	60	3	7	4	14	100	35	2	24	3	28	19	75	36
+"g_Sphaerochaeta"	0	0	0	0	0	0	0	0	0	0	3	0	0	0	3	0	0	0	0	0	0
+"g_Sphingomonas"	0	0	0	0	0	0	0	0	0	0	3	0	0	0	13	0	6	0	0	0	0
+"g_Staphylococcus"	27	28	41	42	15	27	100	17	20	17	32	24	25	28	3	0	8	25	30	16	34
+"g_Streptococcus"	368	491	746	1339	611	835	3840	200	210	170	342	203	253	245	25	122	3836	289	392	592	778
+"g_Treponema 2"	8	1	7	54	1	1	17	7	22	37	259	11	5	80	7	11	139	17	18	0	91
+"g_W5053"	0	0	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0
+"g_Zoogloea"	3	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0
+"D_11__Mammalia"	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	2	0	0
+"g_[Eubacterium] coprostanoligenes group"	0	0	0	0	0	0	0	3	30	0	0	0	0	0	0	0	0	0	0	0	2
+"g_Acinetobacter"	34	185	45	39	16	37	192	4	791	70	29	87	79	120	1762	209	103	47	194	11	7
+"g_Aerococcus"	1	0	0	0	0	5	0	8	7	0	0	3	0	0	0	0	0	0	0	0	0
+"g_Akkermansia"	1	0	0	0	0	0	0	0	1	278	0	0	0	0	0	0	0	0	0	0	0
+"g_Alistipes"	0	0	1	0	0	0	0	1	8	104	0	0	0	0	0	0	0	0	0	0	0
+"g_Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium"	0	0	0	0	0	0	0	0	3	0	0	1	4	0	0	0	0	2	23	0	0
+"g_Altererythrobacter"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	11	0	0
+"g_Anaeroplasma"	0	0	0	0	0	0	0	0	18	2	0	3	0	0	0	0	0	0	0	0	0
+"g_Anoxybacillus"	0	0	0	0	0	0	0	0	1	0	0	0	0	0	67	0	0	0	0	2	0
+"g_Apibacter"	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0
+"g_Aquabacterium"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	26	0	0	0	0	0	0
+"g_Arenimonas"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0
+"g_Asticcacaulis"	0	1	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	3	0	0
+"g_Bacillus"	0	85	0	2	11	0	0	0	2	0	0	0	0	0	17	0	2	5	33	0	0
+"g_Bergeyella"	0	0	0	2	0	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Bifidobacterium"	0	3	4	0	3	4	0	4	20	0	0	1	6	5	5	1	5	0	3	0	2
+"g_Blastococcus"	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0
+"g_Bombella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Bradyrhizobium"	2	0	0	0	3	0	2	0	169	17	0	0	0	0	0	0	3	0	0	4	0
+"g_Brevundimonas"	0	7	3	4	4	2	7	5	39	13	0	97	62	49	6	3	5	7	8	0	0
+"g_Campylobacter"	5	1	5	71	7	3	361	57	11	8	4	3	0	11	1	0	3	7	0	195	14
+"g_candidate division SR1 bacterium MGEHA"	1	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0
+"g_Candidatus Bacilloplasma"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	35	0	0
+"g_Candidatus Nitrocosmicus"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	0	0
+"g_Caulobacter"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	1	0	0	0	0
+"g_Cellvibrio"	0	0	0	0	0	32	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0
+"g_Cetobacterium"	0	0	0	0	5	4	5	0	0	0	0	0	0	0	0	2	11	15	60	0	0
+"g_Christensenellaceae R-7 group"	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Chryseomicrobium"	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Cloacibacterium"	0	1	0	0	0	0	0	0	4	0	0	0	0	0	0	0	2	2	15	0	0
+"g_Clostridioides"	4	3	0	0	0	0	0	0	141	17	0	8	0	0	0	0	0	2	17	0	0
+"g_Cupriavidus"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	4	40	31	0	0
+"g_Curtobacterium"	0	10	1	6	0	0	0	0	21	5	0	10	6	5	0	0	0	0	0	0	0
+"g_Dechloromonas"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0
+"g_Devosia"	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	1	0
+"g_Dorea"	0	0	0	0	0	0	5	4	1	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Eikenella"	4	0	0	11	0	0	0	0	18	3	0	0	0	0	4	0	4	7	0	0	12
+"g_Ensifer"	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	5	5	7	0	0	0
+"g_Erysipelotrichaceae UCG-004"	0	0	0	0	0	0	0	0	16	3	0	0	0	0	0	0	0	0	0	0	0
+"g_Exiguobacterium"	0	4	0	0	0	5	3	6	1	0	0	0	2	2	0	0	5	5	7	0	0
+"g_Faecalibacterium"	0	0	0	0	0	0	0	6	41	2	2	1	0	0	2	0	0	5	0	0	5
+"g_Flavisolibacter"	0	1	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0
+"g_Flavobacterium"	0	0	0	0	0	0	0	0	7	0	1	0	0	4	0	0	2	20	7	0	2
+"g_Gilliamella"	0	0	0	0	0	0	0	0	0	0	0	0	0	15	0	0	0	0	0	0	0
+"g_Gracilibacteria bacterium oral taxon 873"	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_gut metagenome"	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0
+"g_Halomonas"	0	4	0	0	0	0	0	0	0	0	0	15	2	12	0	0	4	2	17	0	0
+"g_hgcI clade"	0	0	0	0	0	0	0	0	0	0	0	1	0	3	0	0	0	0	0	2	0
+"g_Hydrogenophaga"	0	0	0	0	0	0	0	0	37	4	0	0	0	0	0	0	0	0	0	0	0
+"g_Hyphomicrobium"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	0	0	0
+"g_Jeotgalicoccus"	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	8	3	0	0
+"g_Lachnoclostridium"	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0
+"g_Lachnospiraceae NK4A136 group"	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Lactobacillus"	9	11	2	4	25	23	2	1	20	0	0	6	3	19	0	0	2	35	94	6	3
+"g_Lactococcus"	0	1	0	0	2	3	0	2	1	0	0	0	0	0	0	0	0	7	37	2	0
+"g_Lacunisphaera"	0	0	0	0	0	0	0	0	4	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Lautropia"	6	0	2	16	0	9	3	8	78	5	2	2	2	7	8	2	4	33	0	1	2
+"g_Leifsonia"	0	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Leuconostoc"	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	6	2	0	0
+"g_Luteolibacter"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	34	3	0	0	2
+"g_Lysobacter"	6	43	5	2	0	0	0	0	10	1	2	7	0	0	39	0	0	3	2	0	0
+"g_Massilia"	0	0	0	4	0	44	0	6	0	0	0	25	0	4	2	3	0	5	11	0	0
+"g_metagenome"	0	0	0	0	0	0	0	5	20	3	0	0	0	0	0	0	1	0	13	0	0
+"g_Methylotenera"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	10	0	0
+"g_Methyloversatilis"	0	2	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0
+"g_Microbacterium"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0
+"g_Microcystis PCC-7914"	0	0	0	0	0	0	0	0	1	3	0	0	0	0	0	0	0	0	0	0	0
+"g_Morganella"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	13	0	0
+"g_Musa acuminata subsp. malaccensis"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	4	0	0	0
+"g_Mycobacterium"	0	0	0	0	0	0	0	0	5	0	0	0	0	0	0	0	0	2	0	0	0
+"g_Nocardioides"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	13	0	0
+"g_Ochrobactrum"	0	0	0	0	0	0	0	0	3	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Oxalicibacterium"	0	0	0	0	4	0	0	2	0	0	0	0	0	0	0	0	3	0	5	0	0
+"g_Paenibacillus"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	4	0	0	0
+"g_Pantoea"	0	0	0	0	0	8	0	0	0	0	0	0	0	0	0	0	0	8	0	0	0
+"g_Parasutterella"	0	0	0	0	0	0	0	0	0	7	0	0	0	0	0	0	0	0	1	0	0
+"g_Pedobacter"	4	8	0	6	0	0	0	0	24	3	1	7	5	13	0	0	16	9	4	0	2
+"g_Phascolarctobacterium"	0	0	0	0	0	0	0	0	6	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Phreatobacter"	0	0	0	0	0	0	0	0	0	0	0	2	0	0	0	0	0	0	0	0	0
+"g_Pirellula"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	0	0
+"g_Porphyrobacter"	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	7	0	0	0	0
+"g_Prevotella 9"	0	0	0	0	0	0	31	0	21	2	0	0	0	0	0	0	0	0	0	0	27
+"g_Prevotellaceae UCG-001"	0	0	0	0	0	0	0	0	43	0	0	1	0	0	0	0	0	0	0	0	0
+"g_Proteus"	0	0	0	0	7	2574	12	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Providencia"	0	0	0	0	0	7	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Pseudarcicella"	0	0	0	0	6	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Pseudogulbenkiania"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	6	0	0
+"g_Pseudomonas"	6	4	10	2	108	56	32	27	10	0	2	9	7	9	0	2	5	150	470	26	27
+"g_Pseudoxanthomonas"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	9	0	0	0	0
+"g_Psychrobacter"	0	0	0	0	0	0	0	7	0	0	0	0	0	0	0	0	0	0	2	0	0
+"g_Qipengyuania"	0	5	0	0	0	0	0	0	1	0	0	0	0	0	0	0	3	0	0	0	0
+"g_Ralstonia"	7	461	25	8	11	0	3	0	177	18	8	15	9	4	1138	25	62	7	0	0	0
+"g_Rheinheimera"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	0
+"g_Rhodococcus"	0	0	0	0	0	0	0	8	1	0	0	0	3	0	0	0	6	4	1	0	0
+"g_Romboutsia"	0	0	0	0	0	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Roseburia"	0	0	0	0	0	0	0	0	90	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Rothia"	0	2	3	4	0	22	0	0	27	13	0	33	11	19	81	0	49	22	0	0	31
+"g_Ruminiclostridium 9"	0	0	0	0	0	0	0	0	25	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Ruminococcus 1"	0	2	0	0	0	1	0	0	5	0	0	0	0	0	0	0	0	0	0	0	0
+"g_Schlegelella"	0	0	0	0	0	0	0	0	5	0	0	0	0	7	0	0	3	0	6	0	0
+"g_Serratia"	17	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	4	0	12	0	8
+"g_Skermanella"	0	0	0	0	0	0	0	0	0	0	0	1	0	4	0	0	0	0	0	0	0
+"g_Snodgrassella"	0	0	0	0	0	0	0	0	0	0	0	0	0	14	0	0	0	0	0	0	0
+"g_Sphingobacterium"	0	15	0	0	0	0	3	0	0	0	0	0	0	0	0	0	3	3	21	0	0
+"g_Sphingobium"	0	2	0	4	3	3	2	1	0	0	0	0	0	0	0	1	4	29	36	2	5
+"g_Sphingopyxis"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	10	0	0	0
+"g_SR1 bacterium oral taxon 875"	0	0	0	9	0	2	0	0	0	0	0	0	0	0	0	0	0	3	0	0	4
+"g_Stenotrophomonas"	3	6	3	4	0	0	1	0	27	0	0	5	0	0	2	0	0	0	12	0	0
+"g_Sutterella"	0	0	0	0	0	3	2	4	11	0	0	0	0	0	3	0	0	1	1	0	0
+"g_Tepidimonas"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+"g_Verticia"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0
+"g_Vibrio"	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	7	0	0
+"g_Weissella"	0	1	0	0	6	5	1	3	1	0	0	0	0	0	0	0	0	5	0	0	0
+"g_Xanthomonas"	0	0	0	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0

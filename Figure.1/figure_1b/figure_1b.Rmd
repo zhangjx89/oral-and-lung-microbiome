@@ -1,0 +1,88 @@
+---
+title: "figure.1b"
+author: "zhangjingxiang"
+date: "2022/4/11"
+output: html_document
+---
+
+# figure.1b
+```{r}
+library(ggtreeExtra)
+library(ggtree)
+library(treeio)
+library(tidytree)
+library(ggstar)
+library(ggplot2)
+library(ggnewscale)
+
+
+# 读取树文件
+new_tree <- read.tree("new_tree.nwk")
+# the abundance and types of microbes
+dat1 <- read.table("tippoint_attr.txt",header = TRUE )
+# the abundance of microbes at different body sites.
+dat2 <- read.table("ringheatmap_attr.txt",header = TRUE)
+# the abundance of microbes at the body sites of greatest prevalence.
+dat3 <- read.table("barplot_attr.txt",header = TRUE)
+
+# adjust the order
+
+dat2$Sites <- factor(dat2$Sites, levels=c("BAL","Saliva","Oroph","Nasal"))
+dat3$Sites <- factor(dat3$Sites, levels=c("BAL","Saliva","Oroph","Nasal"))
+
+
+Genus_node<- read.table("Genus_nodes.txt",header = TRUE)
+
+Genus_node<-Genus_node[order(Genus_node$node),]
+rownames(Genus_node)<-1:19
+
+p <- ggtree(new_tree, layout="fan", size=0.15, open.angle=5) +
+    geom_hilight(data=Genus_node, mapping=aes(node=node),
+                 extendto=0.8, alpha=0.3, fill="grey", color="grey50",
+                 size=0.05) +
+    geom_cladelab(data=Genus_node, 
+                  mapping=aes(node=node, 
+                              label=label,
+                              offset.text=pos),
+                  hjust=0.5,
+                  angle=0,
+                  barsize=NA,
+                  horizontal=FALSE, 
+                  fontsize=4,
+                  fontface="italic"
+    )
+
+p <- p %<+% dat1 + geom_star(
+                        mapping=aes(fill=Phylum, starshape=Type),
+                        position="identity",starstroke=0.2,size=2) +
+         scale_fill_manual(values=c("#FFC125","#87CEFA","#7B68EE","#808080","#800080",
+                                    "#9ACD32","#D15FEE","#FFC0CB","#EE6A50","#8DEEEE",
+                                    "#006400","#800000","#B0171F","#191970"),
+                           guide=guide_legend(keywidth = 0.5, keyheight = 0.5, order=1,
+                                              override.aes=list(starshape=15)),
+                           na.translate=FALSE)+
+         scale_starshape_manual(values=c(15, 1),
+                                guide=guide_legend(keywidth = 0.5, keyheight = 0.5, order=2),
+                                na.translate=FALSE)
+
+dat3$new_abu<-scale(dat3$HigherAbundance, center =FALSE, scale = TRUE)
+
+dat3$new_abu<-log2(dat3$HigherAbundance*100+1)
+p<-p + new_scale_fill() +
+    geom_fruit(data=dat2, geom=geom_tile,
+               mapping=aes(y=ID, x=Sites, alpha=log10(Abundance*100+1), fill=Sites),
+               color = "grey50", offset = 0.07,size = 0.03)+
+    scale_alpha_continuous(range=c(0, 3),
+                           guide=guide_legend(keywidth = 0.3, keyheight = 0.3, order=5)) +
+    geom_fruit(data=dat3, geom=geom_bar,
+               mapping=aes(y=ID, x=new_abu, fill=Sites),
+               pwidth=0.2, 
+               orientation="y", 
+               stat="identity",
+    ) +
+    scale_fill_manual(values=c("#0000FF","#FFA500","#FF0000","#800000",
+                               "#006400","#800080","#696969"),
+                      guide=guide_legend(keywidth = 0.3, keyheight = 0.3, order=4))
+
+p+layout_rectangular()
+```
